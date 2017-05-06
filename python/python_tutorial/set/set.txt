@@ -1,0 +1,8 @@
+set is unorfered collection with no duplicate elements
+
+>>> basket =['apple','orange','pear','orange','banana']
+>>> fruit=set(basket)
+>>> fruit
+set(['orange', 'pear', 'apple', 'banana'])
+
+

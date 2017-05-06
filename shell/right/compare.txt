@@ -1,0 +1,6 @@
+n1 -eq n2   equal
+n1 -ge n2   n1 >= n2   -ge  great && equal
+n1 -gt n2   n1 > n2    -gt  great
+n1 -le n2   n1 <= n2   -le  little && equal
+n1 -lt n2   n1 < n2    -lt  little
+n1 -ne n2   n1 not equal n2

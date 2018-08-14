@@ -40,4 +40,7 @@ rm -f ./user_password.log
 n|no)
     exit
 ;;
+*)
+    echo "Please enter right command"
+;;
 esac

@@ -1,0 +1,108 @@
+1、最大化代码复用，最小化代码冗余
+  Maximizing code reuse and minimizing redundancy
+
+2、流程分解
+functions would help you divide the overall “make
+pizza” task into chunks—one function for each subtask in the process. It’s easier
+to implement the smaller tasks in isolation than it is to implement the entire process
+at once. In general, functions are about procedure—how to do something, rather
+than what you’re doing it to. We’ll see why this distinction matters in Part VI, when
+we start making new objects with classes
+
+def
+  def is executable code.
+
+def creates an object and assigns it to a name.创建对象并将其赋值给一变量名
+
+lambada 创建一个对象但将其作为结果返回
+  lambda creates an object but returns it as a result.
+
+return 将一个结果对象发送给调用者
+  return sends a result object back to the caller.
+
+yield 向调用者发回一个结果对象，但是记住它离开的地方
+  yield sends a result object back to the caller, but remember  where it left off.
+
+global 声明一个模块级的变量并被赋值
+  global declares module-level variables that are to be assigned.
+
+nolocal 声明了将要赋值的一个封闭的函数变量
+  nonlocal declares enclosing function variables that are to be assigned.
+
+Arguments are passed by assignment (object reference). 参数是通过赋值(对象引用)传递的
+
+Arguments are passed by position, unless you say otherwise.
+
+Arguments, return values, and variables are not declared 参数，返回值以及变量并不是声明
+
+def Statements
+
+def name(arg1,arg2,... argN):
+    statements
+
+备注:name(arg1,...argN) name里面的参数叫形参，括号中包含了0个或以上的参数
+
+or
+
+def name(arg1,arg2,... argN):
+    ...
+    return value
+一个没有返回值的函数自动返回了None对象，但是这个值往往被忽略掉的
+
+定义
+>>> def times(x,y):
+...     return x * y
+... 
+
+调用
+>>> times(3,4)
+12
+>>> times(123,321)
+39483
+
+>>> a=times(3.14,4)
+>>> a
+12.56
+>>> times("Ni",4)
+'NiNiNiNi'
+
+函数times()的作用取决于传递给它的值。这是python核心概念之一
+
+多态Polymorphism
+一个操作的意义取决于被操作对象的类型，实际上python中每个操作都是多态的操作,print,index,*操作operator
+
+当然，多态的编程模型意味着必须测试代码去检测错误，而不是开始提供编译器用来为我们检测类型错误的类型说明
+>>> def intersect(seq1,seq2):
+...     res = []
+...     for x in seq1:
+...         if x in seq2:
+...             res.append(x)
+...     return res
+... 
+>>> intersect("Hello","world")
+['l', 'l', 'o']
+>>> intersect("98801","33217")
+['1']
+
+>>> [x for x in "hello" if x in "world"]
+['l', 'l', 'o']
+
+重访多态 Polymorphism Revisited
+>>> [x for x in "hello" if x in "world"]
+['l', 'l', 'o']
+>>> intersect([1,2,3],(1,4))
+[1]
+
+本地变量
+intersect函数中的res变量在python中叫做本地变量，这个变量只是在def函数内可见的，并且在函数运行时是存在的，实际上，所有在函数内部进行赋值的变量名默认都是本地变量
+
+res是本地变量
+参数是通过赋值被传入的，seq1 和 seq2也是本地变量
+for循环将元素赋值给了一个变量，所以变量x也是本地变量
+所有本地变量都会在函数调用时出现，并在函数退出时消失，intersect函数末尾的return返回结果对象，但是res变量消失
+
+
+
+
+
+

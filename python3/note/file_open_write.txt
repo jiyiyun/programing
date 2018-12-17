@@ -1,0 +1,67 @@
+print(os.system("dir"))
+print(os.system("COMMAND"))   #这里COMMAND是针对执行这条命令所在的系统的，windows系统用windows命令，linux命令用Linux命令
+
+
+import os
+print("This dir is " ,os.getcwd())
+输出
+This dir is  /home/test/PycharmProjects/python3
+
+这里使用了python os.getcwd 没有调用系统命令
+
+In [37]: pwd=os.popen("pwd").read()
+'pwd' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+In [38]: pwd=os.popen("dir").read()
+
+In [39]: print(pwd)
+ 驱动器 C 中的卷没有标签。
+ 卷的序列号是 521C-9D09
+
+ C:\Users\richard 的目录
+
+2018/09/24  17:59    <DIR>          .android
+2018/07/21  15:19               279 .bash_history
+2018/12/14  15:19    <DIR>          .eclipse
+2018/07/21  10:41                50 .gitconfig
+2018/07/29  16:49    <DIR>          .ipynb_checkpoints
+2018/07/21  10:14    <DIR>          .ipython
+2018/07/29  16:48    <DIR>          .jupyter
+这种调用没有返回值1
+
+
+In [41]: f=open('data.txt','w')
+
+In [42]: f.write("hello\n")
+Out[42]: 6
+
+In [43]: f.write("The Second line\n")
+Out[43]: 16
+
+In [44]: f.write("The Third Line\n")
+Out[44]: 15
+
+In [45]: f.write("The forth line python is good program
+    ...: for new leaner\n")
+Out[45]: 53
+
+In [46]: f.write("End\n")
+Out[46]: 4
+
+In [47]: f.close()
+In [49]: f=open('data.txt')
+
+In [50]: f.read()
+Out[50]: 'hello\nThe Second line\nThe Third Line\nThe forth line python is good
+program for new leaner\nEnd\n'
+
+In [53]: f=open('data.txt')
+
+In [54]: print(f.read())
+hello
+The Second line
+The Third Line
+The forth line python is good program for new leaner
+End
+

@@ -1,0 +1,198 @@
+常用练习工具，ipython,jupyter notebook pycharm vim sublime text
+
+week01
+
+2.x 和3.x的区别
+1）语句函数化
+2.x
+>>> print(1,2)
+(1, 2)
+>>> print "1 2"
+1 2
+>>> print 1 2
+  File "<stdin>", line 1
+    print 1 2
+            ^
+SyntaxError: invalid syntax
+
+3.x
+>>> print(1 2)
+  File "<stdin>", line 1
+    print(1 2)
+            ^
+SyntaxError: invalid syntax
+>>> print("1 2")
+1 2
+>>> print(1,2)
+1 2
+
+2)整除
+2.x
+>>> 1/2
+0
+>>> 1//2
+0
+/自然除法  //地板除，只取整
+
+
+3.x
+>>> 1/2
+0.5
+>>> 1//2
+0
+
+3)
+3.x   input 不用raw_input
+
+round函数
+在3.x中变为取最近的偶数
+2.x
+>>> help(round)
+Help on built-in function round in module __builtin__:
+
+round(...)
+    round(number[, ndigits]) -> floating point number
+
+>>> help(round)
+Help on built-in function round in module builtins:
+
+round(...)
+    round(number[, ndigits]) -> number
+
+字符串统一用unicode
+
+python 2.x
+>>> list1=range(10)
+>>> list1
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+python 3.x
+[67]: list1=range(10)
+
+[68]: list1
+[68]: range(0, 10)
+
+[70]: print(list(list1))
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+[71]: list(list1)
+[71]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+[72]: list(range(10))
+[72]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+异常捕获，抛出的语法改变
+不要迷信于某一种编程语言，核心是算法和解决问题的思路
+
+静态编译语言和动态编译语言的区别
+静态编译语言 c c++
+事先声明变量类型，类型不能再改变
+编译时检查
+
+动态编译语言
+不用事先声明类型，随时可以赋值为其它类型
+编程时不知道是什么类型，很难判断
+
+强类型语言
+不同类型之间的操作，必须强制类型转换为同一类型
+弱类型语言
+不同类型之间可以操作，自动隐式转换
+强弱类型之间没有明显区别
+动态编译语言和静态编译语言有明显区别
+>>> print(1+'a')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+python是动态编译语言中的强类型语言
+
+/ 自然除
+//  地板除
+%取模，除完剩余的小数
+**  阶乘，2**4 就是2的4次方
+abs 绝对值
+In [32]: abs(100)
+Out[32]: 100
+
+In [33]: abs(-100)
+Out[33]: 100
+
+
+
+位运算符
+& 与
+| 或
+～ 
+^ 取反  
+<<
+>> 
+
+----------------字符串格式化---------------------
+
+join
++
+printf 格式化输出
+%s %d %f
+%-5s  左对齐，留出来5个位置   
+%4.2f 右对齐(默认右对齐)，小数点前4个位置，小数点后保留2位
+%03d  打印3个位置，不够前面用0补齐，学号打印001,002等等
+
+In [4]: "I am %05d" %(20)
+Out[4]: 'I am 00020'
+%05d是默认的右对齐，前面用0补齐总共5位
+
+In [5]: "I am %-05d" %(20)
+Out[5]: 'I am 20   '
+%-05d 生成的20后面有3个空位
+
+In [11]: '%3.2f%%,0x%x,0X%2X' %(89.32422,10,15)
+Out[11]: '89.32%,0xa,0X F'
+
+位置参数
+"{}:{}".format
+
+n [11]: '%3.2f%%,0x%x,0X%2X' %(89.32422,10,15)
+Out[11]: '89.32%,0xa,0X F'
+
+In [12]: "{}:{}".format('192.168.1.100',8890)
+Out[12]: '192.168.1.100:8890'
+
+In [14]: "{server}{1}:{0}".format(8890,'192.168.1.100',server="web Server:")
+Out[14]: 'web Server:192.168.1.100:8890'
+
+In [15]: "0[0].{0[1]}".format(('magedu','com'))
+Out[15]: '0[0].com'
+
+In [16]: "{0[0]}.{0[1]}".format(('magedu','com'))
+Out[16]: 'magedu.com'
+
+对齐
+In [17]: "{0}*{1}={2:<2}".format(3,2,2*3)
+Out[17]: '3*2=6 '
+
+In [18]: "{0}*{1}={2:<02}".format(3,2,2*3)
+Out[18]: '3*2=60'
+左对齐，空位用0补齐
+
+In [19]: "{0}*{1}={2:>02}".format(3,2,2*3)
+Out[19]: '3*2=06'
+右对齐(默认右对齐)，空位用0补齐
+
+In [21]: "{:^30}".format("centered")
+Out[21]: '           centered           '
+
+In [22]: "{:*^30}".format("centered")
+Out[22]: '***********centered***********'
+
+elp on method_descriptor:
+
+help(str.strip)
+strip(...)
+    S.strip([chars]) -> str
+    
+    Return a copy of the string S with leading and trailing
+    whitespace removed.
+    If chars is given and not None, remove characters in chars instead.
+
+
+
